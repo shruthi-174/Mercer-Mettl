@@ -1,0 +1,361 @@
+{
+	"info": {
+		"_postman_id": "32b03707-9ce0-4803-9571-797c11b2a461",
+		"name": "Mercer Mettl",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17514038"
+	},
+	"item": [
+		{
+			"name": "AUTH SERVICE",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"orgadmin@gmail.com\",\r\n    \"password\": \"Password@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/auth/login",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiYXV0aC1zZXJ2aWNlIiwiYXVkIjoiYXBpLWdhdGV3YXkiLCJlbWFpbCI6Im9yZ2FkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJ0b2tlblR5cGUiOiJBQ0NFU1MiLCJpYXQiOjE3NjczNTc4NDUsImV4cCI6MTc2NzM1ODQ0NX0.LXgHgXCBLQObN4wtH5_Dm_W8oSg0kkaRJhLuaE67yEI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{gateway_url}}/auth/logout",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refreshToken\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/auth/refresh",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgot pw",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/auth/forgot-password",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"auth",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset pw",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USER SERVICE",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiYXV0aC1zZXJ2aWNlIiwiYXVkIjoiYXBpLWdhdGV3YXkiLCJlbWFpbCI6Im9yZ2FkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJ0b2tlblR5cGUiOiJBQ0NFU1MiLCJpYXQiOjE3NjczNDE5ODEsImV4cCI6MTc2NzM0MjU4MX0.EQ253zH-nvKA04fwFL8FuwbhcqYrOQ4mgKPtBdJmQYw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"recruiter@gmail.com\",\r\n  \"password\": \"Password@123\",\r\n  \"fullName\": \"Mercer Recruiter\",\r\n  \"orgId\": 2,\r\n  \"role\": \"RECRUITER\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/user/register",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create org",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiYXV0aC1zZXJ2aWNlIiwiYXVkIjoiYXBpLWdhdGV3YXkiLCJlbWFpbCI6Im9yZ2FkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJ0b2tlblR5cGUiOiJBQ0NFU1MiLCJpYXQiOjE3NjczNDE5ODEsImV4cCI6MTc2NzM0MjU4MX0.EQ253zH-nvKA04fwFL8FuwbhcqYrOQ4mgKPtBdJmQYw",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Org1\",\r\n  \"domain\": \"mercerOrg.com\",\r\n  \"contactEmail\": \"admin@mercer.com\",\r\n  \"isActive\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/org/create",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"org",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create org admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiYXV0aC1zZXJ2aWNlIiwiYXVkIjoiYXBpLWdhdGV3YXkiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsInRva2VuVHlwZSI6IkFDQ0VTUyIsImlhdCI6MTc2NzM0MTAzNiwiZXhwIjoxNzY3MzQxNjM2fQ.tQaQF_ioRLsc_OTODWvktzE_hsclHHqXXMAdCXDgpF8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"orgadmin@gmail.com\",\r\n  \"password\": \"Password@123\",\r\n  \"fullName\": \"Mercer Org Admin\",\r\n  \"orgId\": 2,\r\n  \"role\": \"ORG_ADMIN\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/user/create-org-admin",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"user",
+								"create-org-admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update org",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiYXV0aC1zZXJ2aWNlIiwiYXVkIjoiYXBpLWdhdGV3YXkiLCJlbWFpbCI6Im9yZ2FkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJ0b2tlblR5cGUiOiJBQ0NFU1MiLCJpYXQiOjE3NjczNjIxNDMsImV4cCI6MTc2NzM2Mjc0M30.3rfR7UOpZaXOV3VhtFPkFSgSHD-N1PlkOX1bnHbiq_k",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Org111\",\r\n  \"contactEmail\": \"admin@mercer.com\",\r\n  \"isActive\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{gateway_url}}/org/update/3",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"org",
+								"update",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get org id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiYXV0aC1zZXJ2aWNlIiwiYXVkIjoiYXBpLWdhdGV3YXkiLCJlbWFpbCI6Im9yZ2FkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJ0b2tlblR5cGUiOiJBQ0NFU1MiLCJpYXQiOjE3NjczNjIxNDMsImV4cCI6MTc2NzM2Mjc0M30.3rfR7UOpZaXOV3VhtFPkFSgSHD-N1PlkOX1bnHbiq_k",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{gateway_url}}/org/3",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"org",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all org",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiYXV0aC1zZXJ2aWNlIiwiYXVkIjoiYXBpLWdhdGV3YXkiLCJlbWFpbCI6Im9yZ2FkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJ0b2tlblR5cGUiOiJBQ0NFU1MiLCJpYXQiOjE3NjczNjIxNDMsImV4cCI6MTc2NzM2Mjc0M30.3rfR7UOpZaXOV3VhtFPkFSgSHD-N1PlkOX1bnHbiq_k",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{gateway_url}}/org/all",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"org",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all roles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiYXV0aC1zZXJ2aWNlIiwiYXVkIjoiYXBpLWdhdGV3YXkiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsInRva2VuVHlwZSI6IkFDQ0VTUyIsImlhdCI6MTc2NzM2OTc0OSwiZXhwIjoxNzY3MzcwMzQ5fQ.ZBuCVXax6cwyVedAEDcikRuDXnU0Jp0HbKFbNfpaD34",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{gateway_url}}/roles",
+							"host": [
+								"{{gateway_url}}"
+							],
+							"path": [
+								"roles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user profile",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "change role",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
