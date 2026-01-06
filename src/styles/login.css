@@ -1,0 +1,134 @@
+/* Page background */
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #dbeafe, #e0f2fe);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Card */
+.login-card {
+  width: 900px;
+  height: 500px;
+  background: white;
+  display: flex;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+/* LEFT */
+.login-left {
+  flex: 1;
+  background: linear-gradient(180deg, #eaf4ff, #f8fbff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-image {
+  width: 85%;
+  max-width: 350px;
+}
+
+/* RIGHT */
+.login-right {
+  flex: 1;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-right h2 {
+  font-size: 28px;
+  color: #1e3a8a;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 30px;
+}
+
+/* Inputs */
+.login-right input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 25px;
+  border: 1px solid #cbd5e1;
+  outline: none;
+  font-size: 14px;
+}
+
+.login-right input:focus {
+  border-color: #2563eb;
+}
+
+/* Forgot */
+.forgot {
+  font-size: 13px;
+  color: #2563eb;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-bottom: 25px;
+}
+
+/* Buttons */
+.btn-group {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-primary {
+  flex: 1;
+  padding: 12px;
+  background: #2563eb;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-outline {
+  flex: 1;
+  padding: 12px;
+  background: transparent;
+  border: 2px solid #2563eb;
+  border-radius: 25px;
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* OR */
+.or {
+  text-align: center;
+  margin: 25px 0 15px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* Social */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e0f2fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #2563eb;
+  cursor: pointer;
+}

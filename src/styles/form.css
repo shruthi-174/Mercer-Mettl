@@ -1,0 +1,27 @@
+.form-container {
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 14px;
+  max-width: 600px;
+}
+
+.form-container label {
+  font-size: 14px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.form-container input,
+.form-container select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  margin-bottom: 18px;
+}
+
+.form-container input:focus {
+  border-color: #0057b8;
+  outline: none;
+}

@@ -1,0 +1,27 @@
+.table-container {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th {
+  background-color: #e5e7eb;
+  padding: 12px;
+  text-align: left;
+  font-size: 13px;
+}
+
+table td {
+  padding: 12px;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+table tr:hover {
+  background-color: #f8fafc;
+}

@@ -1,0 +1,32 @@
+.dashboard {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(232, 8, 8, 0.949);
+}
+
+.dashboard h2 {
+  margin-bottom: 24px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.dashboard-card {
+  background-color: #f1f5f9;
+  padding: 20px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.dashboard-card h4 {
+  margin-bottom: 8px;
+}
