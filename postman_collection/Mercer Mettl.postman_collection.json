@@ -1,0 +1,1346 @@
+{
+  "info": {
+    "_postman_id": "985f74d1-472c-465b-968a-9ed658149ea4",
+    "name": "Mercer Mettl",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "28833204"
+  },
+  "item": [
+    {
+      "name": "AUTH SERVICE",
+      "item": [
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let response = pm.response.json();\r",
+                  "\r",
+                  "pm.environment.set(\"accessToken\", response.accessToken);\r",
+                  "pm.environment.set(\"refreshToken\", response.refreshToken);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "// {\r\n//   \"email\": \"{{email_org}}\",\r\n//   \"password\": \"{{password}}\"\r\n// }\r\n\r\n{\r\n  \"email\": \"anilvishwakarma4494@gmail.com\",\r\n  \"password\": \"{{password}}\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{gateway_url}}/auth/login",
+              "host": [
+                "{{gateway_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiYXV0aC1zZXJ2aWNlIiwiYXVkIjoiYXBpLWdhdGV3YXkiLCJlbWFpbCI6Im9yZ2FkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJ0b2tlblR5cGUiOiJBQ0NFU1MiLCJpYXQiOjE3NjczNTc4NDUsImV4cCI6MTc2NzM1ODQ0NX0.LXgHgXCBLQObN4wtH5_Dm_W8oSg0kkaRJhLuaE67yEI",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{gateway_url}}/auth/logout",
+              "host": [
+                "{{gateway_url}}"
+              ],
+              "path": [
+                "auth",
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "refresh token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"refreshToken\":\"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{gateway_url}}/auth/refresh",
+              "host": [
+                "{{gateway_url}}"
+              ],
+              "path": [
+                "auth",
+                "refresh"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "forgot pw",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"admin@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{gateway_url}}/auth/forgot-password",
+              "host": [
+                "{{gateway_url}}"
+              ],
+              "path": [
+                "auth",
+                "forgot-password"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reset pw",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "USER SERVICE",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiYXV0aC1zZXJ2aWNlIiwiYXVkIjoiYXBpLWdhdGV3YXkiLCJlbWFpbCI6Im9yZ2FkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJ0b2tlblR5cGUiOiJBQ0NFU1MiLCJpYXQiOjE3NjczNDE5ODEsImV4cCI6MTc2NzM0MjU4MX0.EQ253zH-nvKA04fwFL8FuwbhcqYrOQ4mgKPtBdJmQYw",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"anilvishwakarma4494@gmail.com\",\r\n  \"password\": \"Password@123\",\r\n  \"fullName\": \"Mercer Candidate\",\r\n  \"orgId\": 2,\r\n  \"role\": \"CANDIDATE\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{gateway_url}}/user/register",
+              "host": [
+                "{{gateway_url}}"
+              ],
+              "path": [
+                "user",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create org",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiYXV0aC1zZXJ2aWNlIiwiYXVkIjoiYXBpLWdhdGV3YXkiLCJlbWFpbCI6Im9yZ2FkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJ0b2tlblR5cGUiOiJBQ0NFU1MiLCJpYXQiOjE3NjczNDE5ODEsImV4cCI6MTc2NzM0MjU4MX0.EQ253zH-nvKA04fwFL8FuwbhcqYrOQ4mgKPtBdJmQYw"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Org1\",\r\n  \"domain\": \"mercerOrg.com\",\r\n  \"contactEmail\": \"admin@mercer.com\",\r\n  \"isActive\": true\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{gateway_url}}/org/create",
+              "host": [
+                "{{gateway_url}}"
+              ],
+              "path": [
+                "org",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create org admin",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiYXV0aC1zZXJ2aWNlIiwiYXVkIjoiYXBpLWdhdGV3YXkiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsInRva2VuVHlwZSI6IkFDQ0VTUyIsImlhdCI6MTc2Nzk3NTQ0OCwiZXhwIjoxNzY3OTc2MDQ4fQ.EqYZb0AHnASXo9cPOZBU0936ew8IXCKkAMfLsrpahlQ",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"orgadmin@gmail.com\",\r\n  \"password\": \"Password@123\",\r\n  \"fullName\": \"Mercer Org Admin\",\r\n  \"orgId\": 2,\r\n  \"role\": \"ORG_ADMIN\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{gateway_url}}/user/create-org-admin",
+              "host": [
+                "{{gateway_url}}"
+              ],
+              "path": [
+                "user",
+                "create-org-admin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update org",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiYXV0aC1zZXJ2aWNlIiwiYXVkIjoiYXBpLWdhdGV3YXkiLCJlbWFpbCI6Im9yZ2FkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJPUkdfQURNSU4iLCJ0b2tlblR5cGUiOiJBQ0NFU1MiLCJpYXQiOjE3NjczNjIxNDMsImV4cCI6MTc2NzM2Mjc0M30.3rfR7UOpZaXOV3VhtFPkFSgSHD-N1PlkOX1bnHbiq_k"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Org111\",\r\n  \"contactEmail\": \"admin@mercer.com\",\r\n  \"isActive\": true\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{gateway_url}}/org/update/3",
+              "host": [
+                "{{gateway_url}}"
+              ],
+              "path": [
+                "org",
+                "update",
+                "3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get org id",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiYXV0aC1zZXJ2aWNlIiwiYXVkIjoiYXBpLWdhdGV3YXkiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsInRva2VuVHlwZSI6IkFDQ0VTUyIsImlhdCI6MTc2ODU3NTQxMywiZXhwIjoxNzY4NTc3MjEzfQ.vnoMrJjpvSEsnQcrkowX0AZwoMCpv1iAZBDKPyWUfBU",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{gateway_url}}/org/1",
+              "host": [
+                "{{gateway_url}}"
+              ],
+              "path": [
+                "org",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all org",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiYXV0aC1zZXJ2aWNlIiwiYXVkIjoiYXBpLWdhdGV3YXkiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsInRva2VuVHlwZSI6IkFDQ0VTUyIsImlhdCI6MTc2ODEyMTQ4MywiZXhwIjoxNzY4MTIyMDgzfQ.xhjXEIo5v6sN8vhlrYLoVu2jdQmHxeGGiAT8dj-gffo"
+              }
+            ],
+            "url": {
+              "raw": "{{gateway_url}}/org/all",
+              "host": [
+                "{{gateway_url}}"
+              ],
+              "path": [
+                "org",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get all roles",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiYXV0aC1zZXJ2aWNlIiwiYXVkIjoiYXBpLWdhdGV3YXkiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsInRva2VuVHlwZSI6IkFDQ0VTUyIsImlhdCI6MTc2NzM2OTc0OSwiZXhwIjoxNzY3MzcwMzQ5fQ.ZBuCVXax6cwyVedAEDcikRuDXnU0Jp0HbKFbNfpaD34"
+              }
+            ],
+            "url": {
+              "raw": "{{gateway_url}}/roles",
+              "host": [
+                "{{gateway_url}}"
+              ],
+              "path": [
+                "roles"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get user profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiaXNzIjoiYXV0aC1zZXJ2aWNlIiwiYXVkIjoiYXBpLWdhdGV3YXkiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJBRE1JTiIsInRva2VuVHlwZSI6IkFDQ0VTUyIsImlhdCI6MTc2ODU3NjI5NCwiZXhwIjoxNzY4NTc4MDk0fQ.GQRoQpF4mPCDd23ianhpj6u2Tbf_750418eF0OaI9s8",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{gateway_url}}/user/me",
+              "host": [
+                "{{gateway_url}}"
+              ],
+              "path": [
+                "user",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get users of org",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{accessToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{gateway_url}}/org/1/users",
+              "host": [
+                "{{gateway_url}}"
+              ],
+              "path": [
+                "org",
+                "1",
+                "users"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ASSESSMENT SERVICE",
+      "item": [
+        {
+          "name": "Questions",
+          "item": [
+            {
+              "name": "generate AI Questions",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/questions/generate?skill=maths&experience=2&count=1",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "questions",
+                    "generate"
+                  ],
+                  "query": [
+                    {
+                      "key": "skill",
+                      "value": "maths"
+                    },
+                    {
+                      "key": "experience",
+                      "value": "2"
+                    },
+                    {
+                      "key": "count",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "create ques",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"questionText\": \"What is JVM?\",\r\n  \"difficulty\": 1,\r\n  \"tags\": [\"JAVA\"],\r\n  \"options\": [\r\n    {\r\n      \"text\": \"Java Virtual Machine\",\r\n      \"correct\": true\r\n    },\r\n    {\r\n      \"text\": \"Java Variable Method\",\r\n      \"correct\": false\r\n    },\r\n    {\r\n      \"text\": \"Joint Virtual Machine\",\r\n      \"correct\": false\r\n    },\r\n    {\r\n      \"text\": \"Java Verified Mode\",\r\n      \"correct\": false\r\n    }\r\n  ]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{gateway_url}}/questions",
+                  "host": [
+                    "{{gateway_url}}"
+                  ],
+                  "path": [
+                    "questions"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get all questions",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"title\": \"What is polymorphism in Java?\",\r\n  \"description\": \"Explain polymorphism with an example\",\r\n  \"type\": \"MCQ\",\r\n  \"difficulty\": 3,\r\n  \"skill\": \"Java\",\r\n  \"options\": [\r\n    {\r\n      \"optionText\": \"Ability of object to take many forms\",\r\n      \"correct\": true\r\n    },\r\n    {\r\n      \"optionText\": \"Ability to inherit classes\",\r\n      \"correct\": false\r\n    },\r\n    {\r\n      \"optionText\": \"Encapsulation of data\",\r\n      \"correct\": false\r\n    }\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"name\": \"OOPS\"\r\n    },\r\n    {\r\n      \"name\": \"Java\"\r\n    }\r\n  ]\r\n}\r\n"
+                },
+                "url": {
+                  "raw": "{{gateway_url}}/questions",
+                  "host": [
+                    "{{gateway_url}}"
+                  ],
+                  "path": [
+                    "questions"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete ques",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{gateway_url}}/questions/1",
+                  "host": [
+                    "{{gateway_url}}"
+                  ],
+                  "path": [
+                    "questions",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get ques by id",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"questionText\": \"What is the capital city of France?\",\r\n  \"difficulty\": 2\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{gateway_url}}/questions/1",
+                  "host": [
+                    "{{gateway_url}}"
+                  ],
+                  "path": [
+                    "questions",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete req by id",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            },
+            {
+              "name": "random questions",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{gateway_url}}/questions/random?count=5",
+                  "host": [
+                    "{{gateway_url}}"
+                  ],
+                  "path": [
+                    "questions",
+                    "random"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "questions filter by tag",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{gateway_url}}/questions?tag=java",
+                  "host": [
+                    "{{gateway_url}}"
+                  ],
+                  "path": [
+                    "questions"
+                  ],
+                  "query": [
+                    {
+                      "key": "tag",
+                      "value": "java"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get all tags",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{gateway_url}}/questions/tags",
+                  "host": [
+                    "{{gateway_url}}"
+                  ],
+                  "path": [
+                    "questions",
+                    "tags"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Tests",
+          "item": [
+            {
+              "name": "create test",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"title\": \"Java Backend Test\",\r\n  \"tag\": \"JAVA\",\r\n  \"durationMinutes\": 60\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{gateway_url}}/tests",
+                  "host": [
+                    "{{gateway_url}}"
+                  ],
+                  "path": [
+                    "tests"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get all test",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"title\": \"Java Backend Test\",\r\n  \"tag\": \"JAVA\",\r\n  \"durationMinutes\": 60\r\n}"
+                },
+                "url": {
+                  "raw": "{{gateway_url}}/tests",
+                  "host": [
+                    "{{gateway_url}}"
+                  ],
+                  "path": [
+                    "tests"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get test by id",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"title\": \"Java Backend Test\",\r\n  \"tag\": \"JAVA\",\r\n  \"durationMinutes\": 60\r\n}"
+                },
+                "url": {
+                  "raw": "{{gateway_url}}/tests/1",
+                  "host": [
+                    "{{gateway_url}}"
+                  ],
+                  "path": [
+                    "tests",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "add questions",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"questionIds\": [1,2,3,4]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{gateway_url}}/tests/1/questions",
+                  "host": [
+                    "{{gateway_url}}"
+                  ],
+                  "path": [
+                    "tests",
+                    "1",
+                    "questions"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete questions",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"questionIds\": [1,2,3,4]\r\n}"
+                },
+                "url": {
+                  "raw": "{{gateway_url}}/tests/1/questions/4",
+                  "host": [
+                    "{{gateway_url}}"
+                  ],
+                  "path": [
+                    "tests",
+                    "1",
+                    "questions",
+                    "4"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Publish test",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{gateway_url}}/tests/1/publish",
+                  "host": [
+                    "{{gateway_url}}"
+                  ],
+                  "path": [
+                    "tests",
+                    "1",
+                    "publish"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete test",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"questionIds\": [1,2,3,4]\r\n}"
+                },
+                "url": {
+                  "raw": "{{gateway_url}}/tests/1",
+                  "host": [
+                    "{{gateway_url}}"
+                  ],
+                  "path": [
+                    "tests",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Test questions",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"questionIds\": [1,2,3,4]\r\n}"
+                },
+                "url": {
+                  "raw": "{{gateway_url}}/tests/1/questions",
+                  "host": [
+                    "{{gateway_url}}"
+                  ],
+                  "path": [
+                    "tests",
+                    "1",
+                    "questions"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "invite candidates",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{gateway_url}}/tests/1/invite?teamId=5",
+                  "host": [
+                    "{{gateway_url}}"
+                  ],
+                  "path": [
+                    "tests",
+                    "1",
+                    "invite"
+                  ],
+                  "query": [
+                    {
+                      "key": "teamId",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "email api test",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:8080/tests/1/attempt?token=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwidGVzdElkIjoxLCJpYXQiOjE3ODEyMjgwMjQsImV4cCI6MTc4MTIzMTYyNH0.iCuYUKhIWoRoTEItOBYs_R8kr_zT_YnHiXyOFc5YFR0",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "tests",
+                    "1",
+                    "attempt"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwidGVzdElkIjoxLCJpYXQiOjE3ODEyMjgwMjQsImV4cCI6MTc4MTIzMTYyNH0.iCuYUKhIWoRoTEItOBYs_R8kr_zT_YnHiXyOFc5YFR0"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Team",
+          "item": [
+            {
+              "name": "Create team",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"orgId\": 1,\r\n  \"name\": \"Java Team\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{gateway_url}}/teams",
+                  "host": [
+                    "{{gateway_url}}"
+                  ],
+                  "path": [
+                    "teams"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Add user to the team",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{gateway_url}}/teams/5/members?userId=3",
+                  "host": [
+                    "{{gateway_url}}"
+                  ],
+                  "path": [
+                    "teams",
+                    "5",
+                    "members"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "3"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get members of team",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{gateway_url}}/teams/5/members",
+                  "host": [
+                    "{{gateway_url}}"
+                  ],
+                  "path": [
+                    "teams",
+                    "5",
+                    "members"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "evaluate answer",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyIiwiaXNzIjoiYXV0aC1zZXJ2aWNlIiwiYXVkIjoiYXBpLWdhdGV3YXkiLCJlbWFpbCI6ImFuaWwudmlzaHdha2FybWFAbnVjbGV1c3RlcS5jb20iLCJyb2xlIjoiT1JHX0FETUlOIiwidG9rZW5UeXBlIjoiQUNDRVNTIiwiaWF0IjoxNzcyODIzOTUzLCJleHAiOjE3NzI4MjU3NTN9.tKG_CcUB8jwvHl-ypk-Y7ROcsmiTEgqjniOyR1-r34M",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"questionId\": 1,\r\n  \"selectedOptionId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{gateway_url}}/questions/evaluate",
+              "host": [
+                "{{gateway_url}}"
+              ],
+              "path": [
+                "questions",
+                "evaluate"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "http://localhost:11434/api/generate",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"model\": \"phi\",\r\n  \"prompt\": \"Generate 2 Java MCQs with options and correct answers\",\r\n  \"stream\": false\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:11434/api/generate",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "11434",
+          "path": [
+            "api",
+            "generate"
+          ]
+        },
+        "description": "Generated from cURL: curl http://localhost:11434/api/generate\r\n"
+      },
+      "response": []
+    }
+  ]
+}
