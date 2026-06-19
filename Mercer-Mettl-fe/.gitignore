@@ -1,0 +1,4 @@
+# IntelliJ / Android Studio
+.idea/
+*.iml
+node_modules/

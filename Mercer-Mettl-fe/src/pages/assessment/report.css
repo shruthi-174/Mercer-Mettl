@@ -1,0 +1,176 @@
+.reports-page {
+margin-bottom: 300px;
+    padding:30px;
+
+}
+
+
+.reports-title {
+
+    text-align:center;
+
+    font-size:26px;
+
+    margin-bottom:30px;
+
+    font-weight:600;
+
+}
+
+
+
+.report-filter {
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.report-filter select {
+
+
+    width:300px;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    border:1px solid #ccc;
+
+    font-size:15px;
+
+}
+
+
+
+.report-filter button {
+
+
+    padding:12px 25px;
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+}
+
+
+
+.report-filter button:hover {
+
+    background:#1d4ed8;
+
+}
+
+
+
+.report-table-container {
+
+
+    background:white;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    box-shadow:
+    0 4px 15px rgba(0,0,0,0.12);
+
+    overflow-x:auto;
+
+}
+
+
+
+.report-table {
+
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+
+
+.report-table th {
+
+
+    background:#1e3158;;
+
+    padding:14px;
+
+    text-align:left;
+
+    font-weight:600;
+
+}
+
+
+
+.report-table td {
+
+
+    padding:14px;
+
+    border-bottom:1px solid #eee;
+
+}
+
+
+
+.report-table tr:hover {
+
+
+    background:#fafafa;
+
+}
+
+
+
+.passed {
+
+
+    background:#dcfce7;
+
+    color:#166534;
+
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+}
+
+
+
+.failed {
+
+
+    background:#fee2e2;
+
+    color:#991b1b;
+
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+}

@@ -1,0 +1,13 @@
+.role-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.role-ADMIN { background-color: #dc2626; }
+.role-ORG_ADMIN { background-color: #2563eb; }
+.role-RECRUITER { background-color: #059669; }
+.role-PROCTOR { background-color: #7c3aed; }
+.role-CANDIDATE { background-color: #6b7280; }

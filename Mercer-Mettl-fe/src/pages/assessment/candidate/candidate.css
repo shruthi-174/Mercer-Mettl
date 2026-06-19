@@ -1,0 +1,259 @@
+.candidate-dashboard-container{
+
+padding:40px;
+
+display:flex;
+
+justify-content:center;
+margin-bottom:250px;
+
+}
+
+
+.candidate-welcome-card{
+
+width:700px;
+
+background:white;
+
+padding:40px;
+
+border-radius:12px;
+
+box-shadow:0 3px 12px rgba(0,0,0,.15);
+font-size:20px;
+
+}
+
+
+.candidate-welcome-card h2{
+
+text-align:center;
+
+}
+
+
+
+
+.candidate-tests-container {
+  padding: 24px;
+}
+
+.candidate-section-title {
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.candidate-tests-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.08);
+}
+
+.candidate-tests-table th,
+.candidate-tests-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+
+}
+
+.candidate-tests-table th {
+  background: #0d083b;
+  font-weight: 600;
+}
+
+.status {
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-ASSIGNED {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-STARTED {
+  background: #cce5ff;
+  color: #004085;
+}
+
+.status-COMPLETED {
+  background: #d4edda;
+  color: #155724;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}
+
+.btn-disabled {
+  background: gray;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+
+.candidate-test-card{
+
+background:white;
+
+padding:20px;
+
+margin-bottom:15px;
+
+border-radius:10px;
+
+box-shadow:0 2px 8px rgba(0,0,0,.12);
+
+}
+
+
+
+.candidate-test-button{
+
+background:#2563eb;
+
+color:white;
+
+border:none;
+
+padding:10px 18px;
+
+border-radius:6px;
+
+cursor:pointer;
+
+}
+
+
+
+
+.candidate-results-container{
+margin-bottom:300px;
+/* padding:20px; */
+margin-left:-500px;
+
+}
+
+.result-h{
+  padding:23px;
+  font-size:33px;
+}
+
+.candidate-result-table{
+
+width:200%;
+
+border-collapse:collapse;
+
+background:white;
+
+box-shadow:0 3px 12px rgba(0,0,0,.12);
+
+border-radius:10px;
+
+overflow:hidden;
+
+}
+
+
+
+.candidate-result-table th{
+
+padding:14px;
+
+text-align:left;
+
+background:#0e2043;
+
+}
+
+
+
+.candidate-result-table td{
+
+padding:14px;
+
+border-bottom:1px solid #eee;
+
+}
+
+
+
+.candidate-pass{
+
+color:green;
+
+font-weight:600;
+
+}
+
+
+
+.candidate-fail{
+
+color:red;
+
+font-weight:600;
+
+}
+.candidate-test-disabled{
+
+background:#ccc;
+
+color:#666;
+
+border:none;
+
+padding:10px 18px;
+
+border-radius:6px;
+
+cursor:not-allowed;
+
+}
+
+
+.candidate-status-completed{
+
+color:green;
+
+font-weight:600;
+
+}
+
+
+.candidate-status-assigned{
+
+color:orange;
+
+font-weight:600;
+
+}
+
+
+.candidate-status-started{
+
+color:blue;
+
+font-weight:600;
+
+}

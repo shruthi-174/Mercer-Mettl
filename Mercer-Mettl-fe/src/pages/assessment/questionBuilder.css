@@ -1,0 +1,28 @@
+.builder{
+  padding:20px;
+}
+
+.builder-actions{
+  display:flex;
+  gap:10px;
+  margin-bottom:20px;
+}
+
+.builder-actions button{
+  padding:8px 14px;
+  border:none;
+  background:#1976d2;
+  color:white;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.builder-actions button:hover{
+  background:#125aa0;
+}
+
+.question-row{
+  display:flex;
+  gap:10px;
+  margin-bottom:8px;
+}

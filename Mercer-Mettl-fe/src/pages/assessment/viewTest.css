@@ -1,0 +1,72 @@
+.tests-page{
+  padding:20px;
+  margin-bottom: auto;
+  margin-right: 400px;
+}
+
+.tests-table{
+  width:150%;
+  height: 120%;
+  border-collapse:collapse;
+  margin-top:20px;
+}
+
+.tests-table th,
+.tests-table td{
+  border:1px solid #ddd;
+  padding:12px;
+  font-size: 15px;
+  text-align:left;
+}
+
+.tests-table th{
+  background:#213b54;
+}
+
+.tests-table tr:hover{
+  background:#f9f9f9;
+}
+
+.view-btn{
+  background:#4caf50;
+  color:white;
+  border:none;
+  padding:6px 12px;
+  border-radius:4px;
+  cursor:pointer;
+}
+
+.publish-btn{
+  background:#1976d2;
+  color:white;
+  border:none;
+  padding:6px 12px;
+  border-radius:4px;
+  cursor:pointer;
+}
+
+.view-btn:hover{
+  background:#3d9441;
+}
+
+.publish-btn:hover{
+  background:#135ca3;
+}
+
+.question-card{
+  border:1px solid #ddd;
+  padding:15px;
+  margin-bottom:15px;
+  border-radius:6px;
+}
+
+.option{
+  margin-left:10px;
+  margin-top:5px;
+}
+
+.difficulty{
+  font-size:13px;
+  color:#777;
+  margin-bottom:10px;
+}
